@@ -1,0 +1,7 @@
+pandas
+numpy
+aiohttp
+asyncio
+pytest
+pytest-asyncio
+faker
