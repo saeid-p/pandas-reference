@@ -34,6 +34,10 @@ def data_frame_test():
     assert bottom_ten_rows is not None
     assert len(bottom_ten_rows) == 10
 
+    df_combined = pd.concat([top_ten_rows, bottom_ten_rows])
+    df_combined.reset_index(drop=True, inplace=True)
+    assert len(df_combined) == 20
+
     age_with_id_df = titanic_df[["Age"]]
     age_series = age_with_id_df["Age"]
     age_array = pd.unique(age_series)
