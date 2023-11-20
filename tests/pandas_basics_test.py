@@ -46,11 +46,11 @@ def data_frame_test():
 
 @pytest.fixture
 def df():
-    df = pd.read_csv(FILE_PATH)
+    df: pd.DataFrame = pd.read_csv(FILE_PATH)
     return df
 
 
-def data_frame_value_count_test(df):
+def data_frame_value_count_test(df: pd.DataFrame):
     gender_counts = df["Sex"].value_counts()
     assert gender_counts["male"] == 577
     assert gender_counts["female"] == 314
@@ -61,7 +61,7 @@ def data_frame_value_count_test(df):
     assert male_passengers_counts[False] == 314
 
 
-def data_frame_data_selection_test(df):
+def data_frame_data_selection_test(df: pd.DataFrame):
     # Finds by row range based on a query and column label.
     row_range = df["PassengerId"] == 10
     col_name = "Name"
@@ -82,7 +82,7 @@ def data_frame_data_selection_test(df):
     assert specific_row_by_at == "Sandstrom, Miss. Marguerite Rut"
 
 
-def data_frame_data_process_test(df):
+def data_frame_data_process_test(df: pd.DataFrame):
     ages = df["Age"]
     ticket_fares = df["Fare"]
 
